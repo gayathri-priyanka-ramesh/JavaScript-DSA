@@ -1,4 +1,5 @@
-/*  Bubble Sort: Works by repeatedly swapping the adjacent elements if they are in the wrong order.
+/*  Bubble Sort: Works by repeatedly swapping the adjacent elements if they are in the wrong order
+                 In-place and Stable Sorting Algorithm
         
         Steps:
             Traverse from left and compare adjacent elements and the higher one is placed at right side
@@ -7,19 +8,13 @@
     
     Total no. of passes: n-1
     Total no. of comparisons: n*(n-1)/2
-    Time Complexity: O(N2)
-    Auxiliary Space: O(1)
+    Time Complexity: O(N^2)
+    Auxiliary Space: O(1) -> Iterative Bubble Sort
+                     O(n) -> Recursive Bubble Sort
 
 */
 
-const numArray = [4, 2, 6, 5, 1, 3];
-
-// Modifies the original array
-function swap(array, xIndex, yIndex) {
-  const temp = array[xIndex];
-  array[xIndex] = array[yIndex];
-  array[yIndex] = temp;
-}
+import { numArray, partiallySortedArray, swap } from "./2_sorting.js";
 
 function bubbleSort(array) {
   //   for (let i = 0; i < array.length - 1; i++) {
@@ -38,7 +33,7 @@ function bubbleSort(array) {
   let comparisonCount = 0;
   let swapCount = 0;
 
-  //   // Runs over the entire array
+  //   // Need not run for the last element as it will be sorted automatically at the end of each pass
   //   for (let i = 0; i < array.length - 1; i++) {
 
   //   Need not run for element at index 0 as it will be sorted automatically at the end of each pass
@@ -47,7 +42,7 @@ function bubbleSort(array) {
     let currentComparisonCount = 0;
     let currentSwapCount = 0;
 
-    // // Enough to check for the subarray of length excluding the last i elements as it will be sorted automatically at the end of all passes
+    // // Enough to check for the subarray of length excluding the last i elements as it will be sorted automatically at the end of each pass
     // for (let j = 0; j < array.length - 1 - i; j++) {
 
     // Enough to check for the subarray of length 'i'
@@ -87,7 +82,7 @@ function bubbleSort(array) {
 }
 
 const bubbleSortedArray = bubbleSort(numArray);
-// const bubbleSortedArray = bubbleSort([1, 2, 4, 3, 5, 6]);
+// const bubbleSortedArray = bubbleSort(partiallySortedArray);
 console.log("Bubble Sorted Array:", bubbleSortedArray);
 console.log(
   "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -96,7 +91,7 @@ console.log(
 let passCount = 0;
 let comparisonCount = 0;
 let swapCount = 0;
-function recursiveBubbleSort(array, length) {
+function recursiveBubbleSort(array, length = array.length) {
   //   if (length === 1) return array;
   //   let swapCnt = 0;
   //   for (let i = 0; i < length - 1; i++) {
@@ -108,16 +103,15 @@ function recursiveBubbleSort(array, length) {
   //   if (swapCnt === 0) return array;
   //   return recursiveBubbleSort(array, length - 1);
 
-  let currentComparisonCount = 0;
   // Base case
   if (length == 1) {
     console.log(`Array when Base Case reached at length ${length} - ${array}`);
-    comparisonCount += currentComparisonCount;
     console.log("~~~~~~~~~~~~~~~~~~~~~~~~~");
     return array;
   }
 
-  var currentSwapCount = 0;
+  let currentComparisonCount = 0;
+  let currentSwapCount = 0;
 
   // Largest element is moved (or bubbled) to end at the end of each pass
   console.log("Pass Count:", ++passCount);
@@ -155,11 +149,8 @@ function recursiveBubbleSort(array, length) {
   return recursiveBubbleSort(array, length - 1);
 }
 
-const recursiveBubbleSortedArray = recursiveBubbleSort(
-  numArray,
-  numArray.length
-);
-// const recursiveBubbleSortedArray = recursiveBubbleSort([1, 2, 4, 3, 5, 6], 6);
+// const recursiveBubbleSortedArray = recursiveBubbleSort(numArray);
+const recursiveBubbleSortedArray = recursiveBubbleSort(partiallySortedArray);
 // const recursiveBubbleSortedArray = recursiveBubbleSort([0, 1, 2], 1);
 // const recursiveBubbleSortedArray = recursiveBubbleSort([0], 1);
 // const recursiveBubbleSortedArray = recursiveBubbleSort([0], 3);
