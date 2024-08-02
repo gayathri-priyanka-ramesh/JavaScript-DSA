@@ -19,12 +19,16 @@
             If width < n/2 then final merge is not yet reached
             When width > n/2, pending unmerged uneven lists are present, hence reset mid only in such case
 
-    Time complexity: O(n log n)
-    Auxiliary Space: O(n)
+        Time complexity:
+            Best Case   : O(n log n) - Array is already sorted or nearly sorted
+            Average Case: O(n log n) - Array is randomly ordered
+            Worst Case  : O(n log n) - Array is sorted in reverse order
 
+        Auxiliary Space: O(n) - Additional space is required for the temporary array used during merging
+        
 */
 
-import { numArray, partiallySortedArray } from "./2_sorting.js";
+import { numArray, partiallySortedArray } from "./1_array.js";
 
 let mergeCount = 0;
 let comparisonCount = 0;

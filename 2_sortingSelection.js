@@ -7,19 +7,25 @@
             After traversing whole array, the lowest value is stored in the first position
             This process is then continued to find the second smallest and place it in the second position and so on until the data is sorted
 
-    Total no. of passes: n-1
-    Total no. of comparisons: n*(n-1)/2
-    Time Complexity: O(N^2)
-    Auxiliary Space: O(1)
-
+        Total no. of passes: n-1
+        Total no. of comparisons: n*(n-1)/2
+        Never makes more than O(N) swaps and can be useful when memory writing is costly
+        
+        Time Complexity: 
+            O(N^2) - One loop to select an element of Array one by one, Another loop to compare that element with every other Array element
+            
+        Auxiliary Space: 
+            Iterative Selection Sort: O(1) - Only extra memory used is for temporary variables while swapping two values in Array (no extra array is used)
+            Recursive Selection Sort: O(n)
+        
 */
 
 import {
   numArray,
   repeatedNumsArray,
   partiallySortedArray,
-  swap,
-} from "./2_sorting.js";
+} from "./1_array.js";
+import { swap } from "./2_sorting.js";
 
 function selectionSort(array) {
   //   for (let i = 0; i < array.length - 1; i++) {

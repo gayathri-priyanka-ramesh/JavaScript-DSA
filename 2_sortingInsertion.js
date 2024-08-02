@@ -11,12 +11,16 @@
             Continue this process, comparing each element with the ones before it and swapping as needed to place it in the correct position among the sorted elements.
             Repeat until the entire array is sorted.
 
-    Time Complexity: O(N^2)
-    Auxiliary Space: O(1)
+        Time Complexity:
+            Best Case   : O(n)    - List is already sorted
+            Average Case: O(n^2 ) - If the list is randomly ordered
+            Worst Case  : O(n^2 ) - If the list is in reverse order
+
+        Auxiliary Space: O(1)
 
 */
 
-import { numArray, partiallySortedArray } from "./2_sorting.js";
+import { numArray, partiallySortedArray } from "./1_array.js";
 
 function insertionSort(array) {
   // for (let i = 1; i < array.length; i++) {

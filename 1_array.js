@@ -1,6 +1,9 @@
 /* Array -> Ordered collection of elements that can be accessed using a numerical index */
+export const numArray = [4, 2, 6, 5, 7, 1, 3];
+export const partiallySortedArray = [1, 2, 4, 3, 7, 5, 6];
+export const repeatedNumsArray = [3, 5, 4, 2, 3, 1, 3];
+export const sortedNumArray = [1, 2, 3, 4, 5, 6, 7];
 const stringArr = ["string2", "string2", "string3"];
-const numberArr = [1, 2, 3, 4, 5];
 const booleanArr = [true, false];
 const mixedArr = [
   "string4",

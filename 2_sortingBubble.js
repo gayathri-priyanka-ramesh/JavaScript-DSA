@@ -6,15 +6,21 @@
             In this way, the largest element is moved to the rightmost end at first
             This process is then continued to find the second largest and place it and so on until the data is sorted
     
-    Total no. of passes: n-1
-    Total no. of comparisons: n*(n-1)/2
-    Time Complexity: O(N^2)
-    Auxiliary Space: O(1) -> Iterative Bubble Sort
-                     O(n) -> Recursive Bubble Sort
+        Total no. of passes: n-1
+        Total no. of comparisons: n*(n-1)/2
+
+        Time Complexity: O(N^2)
+            Average & Worst Case: O(N^2)
+            Boundary Case       : O(n) - Elements are already sorted
+        
+        Auxiliary Space: 
+            Iterative Bubble Sort: O(1)
+            Recursive Bubble Sort: O(n)
 
 */
 
-import { numArray, partiallySortedArray, swap } from "./2_sorting.js";
+import { numArray, partiallySortedArray } from "./1_array.js";
+import { swap } from "./2_sorting.js";
 
 function bubbleSort(array) {
   //   for (let i = 0; i < array.length - 1; i++) {
